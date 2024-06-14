@@ -46,6 +46,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_lints: ^4.0.0
 # Generate new icon:
 # flutter pub get
 # flutter pub run flutter_launcher_icons:main
@@ -54,8 +55,6 @@ flutter_icons:
   ios: true
   remove_alpha_ios: true
   image_path: "assets/icon/icon.png"
-
-flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
