@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:uuid/data.dart';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/rng.dart';
+
 // import 'dart:async';
 // import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'package:http/http.dart' as http;
@@ -7,6 +11,12 @@ import 'package:webview_flutter/webview_flutter.dart';
 // import 'package:webview_flutter_android/webview_flutter_android.dart';
 
 // import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
+
+var uuid = Uuid();
+
+  // Generate a v1 (time-based) id
+  var v1 = uuid.v1(); // -> '6c84fb90-12c4-11e1-840d-7b25c5ee775a'
+
 
 class WebViewPage extends StatefulWidget {
   const WebViewPage({Key? key}) : super(key: key);
@@ -107,7 +117,7 @@ class _WebViewPageState extends State<WebViewPage> {
         title: const Text('Queue Status'),
       ),
       body: WebView(
-        initialUrl: 'https://www.guichetbi.com/index.html',
+        initialUrl: 'https://www.guichetbi.com/idapp/222',
         javascriptMode: JavascriptMode.unrestricted,
         javascriptChannels:{JavascriptChannel(name:"Ticket", 
         onMessageReceived: (JavascriptMessage message){
