@@ -17,18 +17,17 @@ class PageAccueilWidget extends StatefulWidget {
   State<PageAccueilWidget> createState() => _PageAccueilWidgetState();
 }
 
-  String v1 = DateTime.now().millisecondsSinceEpoch.toString();
-    String notificationUrl = 'https://www.guichetbi.com/idapp/$v1';
-
-    String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
+String v1 = DateTime.now().millisecondsSinceEpoch.toString();
+String notificationUrl = 'https://www.guichetbi.com/idapp/$v1';
+String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
 
 class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   late PageAccueilModel _model;
   late Timer _timer;
-  // String? _notificationUrl;
+  bool notificationsEnabled = true;
 
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-  // final _url = Uri.parse("https://www.guichetbi.com/token");
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -41,6 +40,8 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   int userTokenId = 0;
   int currentTokenId = 0;
   int nombreTicketPrecedent = 0;
+
+  int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -68,16 +69,16 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
 
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 10), (timer) {
-      _checkQueueStatus();
+      if (notificationsEnabled) {
+        _checkQueueStatus();
+      }
     });
   }
 
   void _checkQueueStatus() async {
-    // if (_notificationUrl!.isEmpty) return;
-     print('entrer dans la fonction : $tokennotificationUrl');
     try {
       final response = await http.get(Uri.parse(tokennotificationUrl));
-       
+
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         _extractDataFromResponse(data);
@@ -112,16 +113,13 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     await Future.delayed(Duration(milliseconds: 100)); // Simulate async operation
     String url = 'https://www.guichetbi.com/token/number/$encryptedToken';
     print('Token Number URL: $url');
-    // Use the URL as needed
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('url', url);
 
-    // Ouvrir l'URL dans le navigateur
     if (!await launchUrl(Uri.parse(url))) {
       throw 'Could not launch $url';
     }
   }
-
 
   Future<void> _showNotification(int peopleAhead) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
@@ -142,28 +140,16 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       platformChannelSpecifics,
       payload: 'item x',
     );
-
-    print('le message est là' );
   }
 
   Future<void> _generateUrl() async {
-    // Générer une nouvelle variable v1 (par exemple, un UUID ou un timestamp)
-    // String v1 = DateTime.now().millisecondsSinceEpoch.toString();
-    // String notificationUrl = 'https://www.guichetbi.com/idapp/$v1';
-
-    // Stocker l'URL dans SharedPreferences
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('notificationUrl', notificationUrl);
 
-    // Ouvrir l'URL dans le navigateur
     if (!await launchUrl(Uri.parse(notificationUrl))) {
       throw 'Could not launch $notificationUrl';
     }
   }
-
-  // Future<void> _launchURL() async {
-  //   if (!await launchUrl(_url)) throw 'Could not launch $_url';
-  // }
 
   Future<void> scan() async {
     try {
@@ -198,6 +184,22 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
 
   void showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if (index == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const PageAccueilWidget()),
+      );
+    } else if (index == 1) {
+      setState(() {
+        notificationsEnabled = !notificationsEnabled;
+      });
+    }
   }
 
   @override
@@ -237,7 +239,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
                   child: ElevatedButton(
                     onPressed: scan,
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, 
+                      foregroundColor: Colors.white,
                       backgroundColor: const Color(0xFF3987EF),
                       minimumSize: const Size(265, 50),
                       shape: RoundedRectangleBorder(
@@ -258,7 +260,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
                   child: ElevatedButton(
                     onPressed: _generateUrl,
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, 
+                      foregroundColor: Colors.white,
                       backgroundColor: const Color(0xFF3987EF),
                       minimumSize: const Size(265, 50),
                       shape: RoundedRectangleBorder(
@@ -279,7 +281,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
                   child: ElevatedButton(
                     onPressed: _generateTokenNumberUrl,
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, 
+                      foregroundColor: Colors.white,
                       backgroundColor: const Color(0xFF3987EF),
                       minimumSize: const Size(265, 50),
                       shape: RoundedRectangleBorder(
@@ -298,6 +300,21 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: 'Notifications',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.amber[800],
+          onTap: _onItemTapped,
         ),
       ),
     );
