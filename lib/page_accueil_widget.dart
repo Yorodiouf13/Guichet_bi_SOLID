@@ -9,6 +9,11 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'page_accueil_model.dart';
 export 'page_accueil_model.dart';
+// import 'webview_page.dart';
+
+String v1 = DateTime.now().millisecondsSinceEpoch.toString();
+String notificationUrl = 'https://www.guichetbi.com/idapp/$v1';
+String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
 
 class PageAccueilWidget extends StatefulWidget {
   const PageAccueilWidget({super.key});
@@ -16,10 +21,6 @@ class PageAccueilWidget extends StatefulWidget {
   @override
   State<PageAccueilWidget> createState() => _PageAccueilWidgetState();
 }
-
-String v1 = DateTime.now().millisecondsSinceEpoch.toString();
-String notificationUrl = 'https://www.guichetbi.com/idapp/$v1';
-String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
 
 class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   late PageAccueilModel _model;
@@ -83,6 +84,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
         final data = jsonDecode(response.body);
         _extractDataFromResponse(data);
         print('Nombre de tickets précédents: $nombreTicketPrecedent');
+        print('encryptedToken: $encryptedToken');
 
         if (nombreTicketPrecedent == 10 || nombreTicketPrecedent == 5) {
           _showNotification(nombreTicketPrecedent);
@@ -258,7 +260,9 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
-                    onPressed: _generateUrl,
+                    onPressed: () {
+                  Navigator.pushNamed(context, '/webview'); // Navigation vers WebViewPage
+                },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: const Color(0xFF3987EF),
@@ -313,7 +317,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
+          selectedItemColor: Color.fromARGB(255, 255, 81, 0),
           onTap: _onItemTapped,
         ),
       ),

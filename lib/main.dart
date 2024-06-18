@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page_accueil_widget.dart';
+import 'webview_page.dart';
 
 void main() => runApp(App());
 
@@ -11,7 +12,11 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PageAccueilWidget(),
-    );
+       initialRoute: '/', // Route initiale
+      routes: {
+        '/': (context) => PageAccueilWidget(), // Page d'accueil
+        '/webview': (context) => WebViewPage(), // Nouvelle route pour WebViewPage
+  },
+  );
   }
 }
