@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartqueue/utils.dart';
 import 'page_accueil_widget.dart';
 import 'webview_page.dart';
 
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
        initialRoute: '/', // Route initiale
       routes: {
         '/': (context) => PageAccueilWidget(), // Page d'accueil
-        '/webview': (context) => WebViewPage(), // Nouvelle route pour WebViewPage
+        '/webview': (context) => WebViewPage(notificationUrl: notificationUrl,), // Nouvelle route pour WebViewPage
   },
   );
   }

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'page_accueil_widget.dart';
+import 'package:smartqueue/utils.dart';
 
 
 class WebViewPage extends StatefulWidget {
-  const WebViewPage({Key? key}) : super(key: key);
+final String notificationUrl;
+
+  const WebViewPage({Key? key, required this.notificationUrl}) : super(key: key);
 
   @override
   _WebViewPageState createState() => _WebViewPageState();
@@ -33,12 +36,13 @@ class _WebViewPageState extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    String initialUrl = widget.notificationUrl;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ticket'),
       ),
       body: WebView(
-        initialUrl: 'https://www.guichetbi.com/idapp/$v1',
+        initialUrl: initialUrl,
         onWebViewCreated: (WebViewController webViewController) {
           // _webViewController = webViewController;
           _controller = webViewController;  

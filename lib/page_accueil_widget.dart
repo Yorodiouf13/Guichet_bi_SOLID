@@ -9,10 +9,10 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'page_accueil_model.dart';
 export 'page_accueil_model.dart';
-// import 'webview_page.dart';
+import 'webview_page.dart';
+import 'package:smartqueue/utils.dart';
 
-String v1 = DateTime.now().millisecondsSinceEpoch.toString();
-String notificationUrl = 'https://www.guichetbi.com/idapp/$v1';
+
 String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
 
 class PageAccueilWidget extends StatefulWidget {
@@ -123,6 +123,15 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     }
   }
 
+  Future<void> _generateUrl() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('notificationUrl', notificationUrl);
+
+    if (!await launchUrl(Uri.parse(notificationUrl))) {
+      throw 'Could not launch $notificationUrl';
+    }
+  }
+
   Future<void> _showNotification(int peopleAhead) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
@@ -142,15 +151,6 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       platformChannelSpecifics,
       payload: 'item x',
     );
-  }
-
-  Future<void> _generateUrl() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('notificationUrl', notificationUrl);
-
-    if (!await launchUrl(Uri.parse(notificationUrl))) {
-      throw 'Could not launch $notificationUrl';
-    }
   }
 
   Future<void> scan() async {
@@ -202,6 +202,16 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
         notificationsEnabled = !notificationsEnabled;
       });
     }
+  }
+
+  Future<void> _navigateToWebView() async {
+    await  _generateUrl();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WebViewPage(notificationUrl: notificationUrl),
+      ),
+    );
   }
 
   @override
@@ -260,9 +270,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
-                    onPressed: () {
-                  Navigator.pushNamed(context, '/webview'); // Navigation vers WebViewPage
-                },
+                    onPressed: _navigateToWebView,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: const Color(0xFF3987EF),
