@@ -37,6 +37,7 @@ class _WebViewPageState extends State<WebViewPage> {
       appBar: AppBar(
         title: const Text('Ticket'),
       ),
+      // ignore: unnecessary_null_comparison
       body: _controller == null
           ? const Center(child: CircularProgressIndicator())
           : WebViewWidget(controller: _controller),
