@@ -8,6 +8,11 @@
     <application
         android:label="Guichet Bi"
         android:icon="@mipmap/launcher_icon">
+
+         <meta-data
+        android:name="io.flutter.embedding.android.EnableHybridComposition"
+        android:value="true" />
+        
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

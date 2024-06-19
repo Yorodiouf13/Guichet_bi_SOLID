@@ -15,6 +15,7 @@ import 'package:smartqueue/utils.dart';
 
 String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
 
+
 class PageAccueilWidget extends StatefulWidget {
   const PageAccueilWidget({super.key});
 
@@ -123,15 +124,6 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     }
   }
 
-  Future<void> _generateUrl() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('notificationUrl', notificationUrl);
-
-    if (!await launchUrl(Uri.parse(notificationUrl))) {
-      throw 'Could not launch $notificationUrl';
-    }
-  }
-
   Future<void> _showNotification(int peopleAhead) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
@@ -205,11 +197,11 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   }
 
   Future<void> _navigateToWebView() async {
-    await  _generateUrl();
+    String url = notificationUrl;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => WebViewPage(notificationUrl: notificationUrl),
+        builder: (context) => WebViewPage(notificationUrl: url),
       ),
     );
   }

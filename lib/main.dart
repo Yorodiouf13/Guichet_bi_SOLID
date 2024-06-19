@@ -16,7 +16,7 @@ class App extends StatelessWidget {
        initialRoute: '/', // Route initiale
       routes: {
         '/': (context) => PageAccueilWidget(), // Page d'accueil
-        '/webview': (context) => WebViewPage(notificationUrl: notificationUrl,), // Nouvelle route pour WebViewPage
+        '/webview': (context) => WebViewPage(notificationUrl: notificationUrl), // Nouvelle route pour WebViewPage
   },
   );
   }
