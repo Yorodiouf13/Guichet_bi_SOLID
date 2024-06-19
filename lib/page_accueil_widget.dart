@@ -10,7 +10,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'page_accueil_model.dart';
 export 'page_accueil_model.dart';
 import 'webview_page.dart';
-import 'package:smartqueue/utils.dart';
+import 'package:appflutter/utils.dart';
 
 
 String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
@@ -70,7 +70,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
       if (notificationsEnabled) {
         _checkQueueStatus();
       }
@@ -113,7 +113,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   }
 
   Future<void> _generateTokenNumberUrl() async {
-    await Future.delayed(Duration(milliseconds: 100)); // Simulate async operation
+    await Future.delayed(const Duration(milliseconds: 100)); // Simulate async operation
     String url = 'https://www.guichetbi.com/token/number/$encryptedToken';
     print('Token Number URL: $url');
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -317,7 +317,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Color.fromARGB(255, 255, 81, 0),
+          selectedItemColor: const Color.fromARGB(255, 255, 81, 0),
           onTap: _onItemTapped,
         ),
       ),

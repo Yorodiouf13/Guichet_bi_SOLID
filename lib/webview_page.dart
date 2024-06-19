@@ -4,7 +4,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WebViewPage extends StatefulWidget {
   final String notificationUrl;
 
-  const WebViewPage({Key? key, required this.notificationUrl}) : super(key: key);
+  const WebViewPage({super.key, required this.notificationUrl});
 
   @override
   _WebViewPageState createState() => _WebViewPageState();
