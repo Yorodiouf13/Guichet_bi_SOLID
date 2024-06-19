@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action.xml"
+    }
+]

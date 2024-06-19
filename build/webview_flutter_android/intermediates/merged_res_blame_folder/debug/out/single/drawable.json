@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\webview_flutter_android\\intermediates\\merged_res\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\d6c7bd25c35bcfc9853e4bc700e739ae\\transformed\\core-1.6.0\\res\\drawable\\notification_tile_bg.xml"
+    }
+]
