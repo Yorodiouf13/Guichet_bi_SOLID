@@ -1,10 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPage extends StatefulWidget {
-  final String notificationUrl;
-
-  const WebViewPage({super.key, required this.notificationUrl});
+  final String initialUrl;
+  const WebViewPage({Key? key, required this.initialUrl}) : super(key: key);
 
   @override
   _WebViewPageState createState() => _WebViewPageState();
@@ -12,35 +12,35 @@ class WebViewPage extends StatefulWidget {
 
 class _WebViewPageState extends State<WebViewPage> {
   late final WebViewController _controller;
+   bool notificationsEnabled = true;
 
   @override
   void initState() {
     super.initState();
-    _initializeWebView();
-  }
-
-  Future<void> _initializeWebView() async {
-    final WebViewController controller = WebViewController.fromPlatformCreationParams(
-      const PlatformWebViewControllerCreationParams(),
-    );
-    await controller.setJavaScriptMode(JavaScriptMode.unrestricted);
-    await controller.loadRequest(Uri.parse(widget.notificationUrl));
-
-    setState(() {
-      _controller = controller;
-    });
+    if (Platform.isAndroid) {
+      WebView.platform = SurfaceAndroidWebView();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ticket'),
+        title: Text('Retour'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
-      // ignore: unnecessary_null_comparison
-      body: _controller == null
-          ? const Center(child: CircularProgressIndicator())
-          : WebViewWidget(controller: _controller),
+      body: WebView(
+        initialUrl: widget.initialUrl,
+        javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (WebViewController webViewController) {
+          _controller = webViewController;
+        },
+      ),
     );
   }
 }

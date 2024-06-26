@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Oumar Y. DIOUF\\SOLID\\GFA\\appflutter\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\4e9902b827584d82a6d31f062298a99f\\transformed\\jetified-core-1.9.8\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\3fa0c476a7501e3dd1002ad934ff55a2\\transformed\\jetified-core-1.9.8\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
