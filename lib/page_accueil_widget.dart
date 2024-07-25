@@ -63,9 +63,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     super.initState();
     _model = createModel(context, () => PageAccueilModel());
     _initNotifications();
-//  _loadNotificationState();
-//                   print('notification10init: $notification10Sent'); 
-//                   print('notification05init: $notification05Sent'); 
+ _loadNotificationState();
         //  _checkFirstRun();
     _startTimer();
     //  twilioFlutter = TwilioFlutter(
@@ -186,13 +184,13 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
 
   // }
 
-  //  Future<void> _loadNotificationState() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     notification10Sent = prefs.getBool('notification10Sent') ?? false;
-  //     notification05Sent = prefs.getBool('notification5Sent') ?? false;
-  //   });
-  // }
+   Future<void> _loadNotificationState() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      notification10Sent = prefs.getBool('notification10Sent') ?? false;
+      notification05Sent = prefs.getBool('notification5Sent') ?? false;
+    });
+  }
 
   // Future<void> _saveNotificationState() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -229,14 +227,14 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
           print('notification10Sent: $notification10Sent');
           print('notification05Sent: $notification05Sent');
 
-          if (nombreTicketPrecedent == 10 && notification10Sent==false) {
+          if (nombreTicketPrecedent == 10 && notification10Sent == false) {
             _showNotification(10);
             notification10Sent = true;
             SharedPreferences prefs = await SharedPreferences.getInstance();
             prefs.setBool('notification10Sent', notification10Sent);
 
 
-          } else if (nombreTicketPrecedent == 5 && notification05Sent==false) {
+          } else if (nombreTicketPrecedent == 5 && notification05Sent == false) {
             _showNotification(5);
             notification05Sent = true;
             SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -244,14 +242,13 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
 
 
           }
-    //       else {
-    //         notification10Sent = false;
-    //         notification05Sent = false;
-    //            SharedPreferences prefs = await SharedPreferences.getInstance();
-    // prefs.setBool('notification10Sent', notification10Sent);
-    // prefs.setBool('notification5Sent', notification05Sent);
-    //       }
-
+          else if (nombreTicketPrecedent > 10) {
+        notification10Sent = false;
+        prefs.setBool('notification10Sent', notification10Sent);
+      } else if (nombreTicketPrecedent > 5) {
+        notification05Sent = false;
+        prefs.setBool('notification5Sent', notification05Sent);
+      }
         } else {
           print('Failed to load queue status');
         }
@@ -296,7 +293,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       channelDescription: 'your_channel_description',
       importance: Importance.max,
       priority: Priority.high,
-      playSound: false,
+      sound: RawResourceAndroidNotificationSound('notifsilencieuse'),
       ticker: 'ticker',
     );
     const NotificationDetails platformChannelSpecifics =
