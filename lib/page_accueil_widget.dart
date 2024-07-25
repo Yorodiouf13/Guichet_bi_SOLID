@@ -243,13 +243,14 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
             prefs.setBool('notification5Sent', notification05Sent);
 
 
-          }else {
-            notification10Sent = false;
-            notification05Sent = false;
-               SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('notification10Sent', notification10Sent);
-    prefs.setBool('notification5Sent', notification05Sent);
           }
+    //       else {
+    //         notification10Sent = false;
+    //         notification05Sent = false;
+    //            SharedPreferences prefs = await SharedPreferences.getInstance();
+    // prefs.setBool('notification10Sent', notification10Sent);
+    // prefs.setBool('notification5Sent', notification05Sent);
+    //       }
 
         } else {
           print('Failed to load queue status');
