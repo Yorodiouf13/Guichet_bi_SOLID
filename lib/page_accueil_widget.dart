@@ -10,8 +10,15 @@ import 'page_accueil_model.dart';
 export 'page_accueil_model.dart';
 import 'webview_page.dart';
 import 'package:appflutter/utils.dart';
+// import 'package:twilio_flutter/twilio_flutter.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+// import 'package:permission_handler/permission_handler.dart';
+
+
 
 String tokennotificationUrl = 'https://www.guichetbi.com/tokennotification/$v1';
+  bool notification10Sent = false;
+  bool notification05Sent = false;
 
 class PageAccueilWidget extends StatefulWidget {
   const PageAccueilWidget({super.key});
@@ -22,11 +29,15 @@ class PageAccueilWidget extends StatefulWidget {
 
 class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   late PageAccueilModel _model;
+  // late TwilioFlutter twilioFlutter;
   late Timer _timer;
   bool notificationsEnabled = true;
 
+
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
+
+  final FlutterTts flutterTts = FlutterTts();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -36,23 +47,32 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   String department = '';
   String currentToken = '';
   String encryptedToken = '';
+  String numeroTelephone= '';
   int userTokenId = 0;
   int currentTokenId = 0;
   int nombreTicketPrecedent = 0;
 
+
   // int _selectedIndex = 0;
 
-  bool notification10Sent = false;
-  bool notification0Sent = false;
+  // bool notification10Sent = false;
+  // bool notification05Sent = false;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => PageAccueilModel());
     _initNotifications();
-     _loadNotificationState();
-     _checkFirstRun();
+//  _loadNotificationState();
+//                   print('notification10init: $notification10Sent'); 
+//                   print('notification05init: $notification05Sent'); 
+        //  _checkFirstRun();
     _startTimer();
+    //  twilioFlutter = TwilioFlutter(
+    //   accountSid: 'my_account_sid', 
+    //   authToken: 'my_auth_token', 
+    //   twilioNumber: 'my_twilio_whatsapp_number', 
+    // );
   }
 
   @override
@@ -69,77 +89,116 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       android: initializationSettingsAndroid,
     );
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    await _createNotificationChannel();
   }
 
-  Future<void> _checkFirstRun() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
-
-    if (isFirstRun) {
-      _showNotificationPermissionDialog();
-      await prefs.setBool('isFirstRun', false);
-    }
-  }
-
-  void _showNotificationPermissionDialog() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Notifications'),
-          content: Text('L\'application doit vous envoyer des notifications. Voulez-vous les activer ?'),
-          actions: <Widget>[
-            TextButton(
-              child: Text('Non'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text('Oui'),
-              onPressed: () {
-                _requestNotificationPermissions();
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
+    Future<void> _createNotificationChannel() async {
+    const AndroidNotificationChannel channel = AndroidNotificationChannel(
+      'default_channel',
+      'Default Channel',
+      description: 'This channel is used for important notifications.',
+      importance: Importance.max,
     );
+
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
+
+    await flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>()?.createNotificationChannel(channel);
   }
 
-   Future<void> _requestNotificationPermissions() async {
-    // Demandez la permission d'envoyer des notifications sur iOS
-    final IOSFlutterLocalNotificationsPlugin? iosImplementation =
-        flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
-            IOSFlutterLocalNotificationsPlugin>();
+  // Future<void> _checkFirstRun() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
 
-    if (iosImplementation != null) {
-      await iosImplementation.requestPermissions(
-        alert: true,
-        badge: true,
-        sound: true,
-      );
-    }
+  //   if (isFirstRun) {
+  //     // _showNotificationPermissionDialog();
+  //     //  _requestNotificationPermissions();
+  //     await prefs.setBool('isFirstRun', false);
+  //   }
+  // }
 
-    // Pour Android, la permission est déjà gérée dans les paramètres de l'application
-    // Vous pouvez ajouter des configurations spécifiques si nécessaire
-  }
+//  void _showNotificationPermissionDialog() {
+//   showDialog(
+//     context: context,
+//     barrierDismissible: false,
+//     builder: (BuildContext context) {
+//       return AlertDialog(
+//         title: Text('Guichet bi'),
+//         content: Text('L\'application doit vous envoyer des notifications. Voulez-vous les activer ?'),
+//         actions: <Widget>[
+//           TextButton(
+//             child: Text('Non'),
+//             onPressed: () {
+//               setState(() {
+//                 notificationsEnabled = false;
+//               });
+//               Navigator.of(context).pop();
+//             },
+//           ),
+//           TextButton(
+//             child: Text('Oui'),
+//             onPressed: () {
+//               notificationsEnabled = true;
+//               Navigator.of(context).pop();
+//             },
+//           ),
+//         ],
+//       );
+//     },
+//   );
+// }
 
-   Future<void> _loadNotificationState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      notification10Sent = prefs.getBool('notification10Sent') ?? false;
-      notification0Sent = prefs.getBool('notification5Sent') ?? false;
-    });
-  }
 
-  Future<void> _saveNotificationState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('notification10Sent', notification10Sent);
-    prefs.setBool('notification5Sent', notification0Sent);
-  }
+  //  Future<void> _requestNotificationPermissions() async {
+  //   // Demandez la permission d'envoyer des notifications sur iOS
+  //   final IOSFlutterLocalNotificationsPlugin? iosImplementation =
+  //       flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+  //           IOSFlutterLocalNotificationsPlugin>();
+
+  //   if (iosImplementation != null) {
+  //     await iosImplementation.requestPermissions(
+  //       alert: true,
+  //       badge: true,
+  //       sound: true,
+  //     );
+
+  //     final status = await Permission.notification.status;
+  // if (status.isDenied || status.isRestricted) {
+  //   if (await Permission.notification.request().isGranted) {
+  //     print("Permission Donnée.");
+  //     setState(() {
+  //       notificationsEnabled = true;
+  //     });
+  //   } else {
+  //     print("Permission refusé.");
+  //     setState(() {
+  //       notificationsEnabled = false;
+  //     });
+  //   }
+  // } else if (status.isGranted) {
+  //   print("Permission déjà donnée.");
+  //   setState(() {
+  //     notificationsEnabled = true;
+  //   });
+  // }
+  //   }
+
+  // }
+
+  //  Future<void> _loadNotificationState() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     notification10Sent = prefs.getBool('notification10Sent') ?? false;
+  //     notification05Sent = prefs.getBool('notification5Sent') ?? false;
+  //   });
+  // }
+
+  // Future<void> _saveNotificationState() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setBool('notification10Sent', notification10Sent);
+  //   prefs.setBool('notification5Sent', notification05Sent);
+  // }
 
   void _startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
@@ -148,35 +207,57 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       }
     });
   }
+      
+    void _checkQueueStatus() async {
+      try {
+        final response = await http.get(Uri.parse(tokennotificationUrl));
+        print(response.body);
+        print('tokennotificationUrl: $tokennotificationUrl');
+        if (response.statusCode == 200) {
+          final data = jsonDecode(response.body);
+          print('Data from API: $data'); 
+          _extractDataFromResponse(data);
+          print('Nombre de tickets précédents: $nombreTicketPrecedent');
+          print('encryptedToken: $encryptedToken');
+          
+         SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      notification10Sent = prefs.getBool('notification10Sent') ?? false;
+      notification05Sent = prefs.getBool('notification5Sent') ?? false;
+    });
 
-  void _checkQueueStatus() async {
-    try {
-      final response = await http.get(Uri.parse(tokennotificationUrl));
-      print(response.body);
-      print('tokennotificationUrl: $tokennotificationUrl');
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        _extractDataFromResponse(data);
-        print('Nombre de tickets précédents: $nombreTicketPrecedent');
-        print('encryptedToken: $encryptedToken');
+          print('notification10Sent: $notification10Sent');
+          print('notification05Sent: $notification05Sent');
 
-        if (nombreTicketPrecedent == 10) {
-          _showNotification(10);
-          notification10Sent = true;
-          _saveNotificationState();
-        } else if (nombreTicketPrecedent == 5) {
-          _showNotification(5);
-           notification0Sent = true;
-          _saveNotificationState();
+          if (nombreTicketPrecedent == 10 && notification10Sent==false) {
+            _showNotification(10);
+            notification10Sent = true;
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setBool('notification10Sent', notification10Sent);
+
+
+          } else if (nombreTicketPrecedent == 5 && notification05Sent==false) {
+            _showNotification(5);
+            notification05Sent = true;
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+            prefs.setBool('notification5Sent', notification05Sent);
+
+
+          }else {
+            notification10Sent = false;
+            notification05Sent = false;
+               SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('notification10Sent', notification10Sent);
+    prefs.setBool('notification5Sent', notification05Sent);
+          }
+
+        } else {
+          print('Failed to load queue status');
         }
-
-      } else {
-        print('Failed to load queue status');
+      } catch (e) {
+        print('Error fetching queue status: $e');
       }
-    } catch (e) {
-      print('Error fetching queue status: $e');
     }
-  }
 
   void _extractDataFromResponse(Map<String, dynamic> data) {
     setState(() {
@@ -189,6 +270,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       userTokenId = data['userTokenId'];
       currentTokenId = data['currentTokenId'];
       nombreTicketPrecedent = data['nombreTicketPrecedent'];
+      // numeroTelephone = data['numeroTelephone'];
     });
   }
 
@@ -208,22 +290,30 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     String message = 'Il reste $peopleAhead personnes avant votre passage.';
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'your_channel_id',
-      'your_channel_name',
+      'default_channel', 
+      'Default Channel',
       channelDescription: 'your_channel_description',
       importance: Importance.max,
       priority: Priority.high,
+      playSound: false,
       ticker: 'ticker',
     );
     const NotificationDetails platformChannelSpecifics =
         NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
       0,
-      'Notification',
+      'Guichet Bi',
       message,
       platformChannelSpecifics,
       payload: 'item x',
     );
+    await _speak(message);
+  }
+
+  Future<void> _speak(String message) async {
+    await flutterTts.setLanguage('fr-FR');
+    await flutterTts.setPitch(10.0);
+    await flutterTts.speak(message);
   }
 
   Future<void> scan() async {

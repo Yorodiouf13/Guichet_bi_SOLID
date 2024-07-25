@@ -1855,6 +1855,8 @@ string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
 string copy_toast_msg
+string default_notification_channel_id
+string default_notification_channel_name
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior

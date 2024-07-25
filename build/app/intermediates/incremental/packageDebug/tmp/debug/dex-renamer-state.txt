@@ -1,4 +1,4 @@
-#Wed Jun 26 16:07:41 GMT 2024
+#Thu Jul 25 17:49:53 GMT 2024
 base.0=C\:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

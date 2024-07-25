@@ -15,131 +15,151 @@
 14-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:8:5-67
 14-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:8:22-64
 15    <uses-permission android:name="android.permission.CAMERA" />
-15-->[:barcode_scan2] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
-15-->[:barcode_scan2] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-62
-16    <uses-permission android:name="android.permission.VIBRATE" />
-16-->[:flutter_local_notifications] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
-16-->[:flutter_local_notifications] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
-17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-17-->[:flutter_local_notifications] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
-17-->[:flutter_local_notifications] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
+15-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:9:5-65
+15-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:9:22-62
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+16-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:11:5-81
+16-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.VIBRATE" />
+17-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:12:5-66
+17-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:12:22-63
 18
-19    <permission
-19-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
-20        android:name="com.muliatech.smartqueue.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-20-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
-21        android:protectionLevel="signature" />
-21-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
-22
-23    <uses-permission android:name="com.muliatech.smartqueue.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-23-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
-23-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+19    <queries>
+19-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:15:5-19:15
+20        <intent>
+20-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:16:7-18:16
+21            <action android:name="android.intent.action.TTS_SERVICE" />
+21-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:17:9-68
+21-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:17:17-65
+22        </intent>
+23    </queries>
 24
-25    <application
-25-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:10:5-53:19
-26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
-27        android:debuggable="true"
-28        android:icon="@mipmap/launcher_icon"
-28-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:12:9-45
-29        android:label="Guichet Bi" >
-29-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:11:9-35
-30        <meta-data
-30-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:14:10-16:32
-31            android:name="io.flutter.embedding.android.EnableHybridComposition"
-31-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:15:9-76
-32            android:value="true" />
-32-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:16:9-29
-33
-34        <activity
-34-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:18:9-47:20
-35            android:name="com.muliatech.smartqueue.MainActivity"
-35-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:19:13-41
-36            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-36-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:22:13-163
-37            android:exported="true"
-37-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:25:13-36
-38            android:hardwareAccelerated="true"
-38-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:23:13-47
-39            android:launchMode="singleTop"
-39-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:20:13-43
-40            android:theme="@style/LaunchTheme"
-40-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:21:13-47
-41            android:windowSoftInputMode="adjustResize" >
-41-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:24:13-55
-42
-43            <!--
-44                 Specifies an Android theme to apply to this Activity as soon as
-45                 the Android process has started. This theme is visible to the user
-46                 while the Flutter UI initializes. After that, this theme continues
-47                 to determine the Window background behind the Flutter UI.
-48            -->
-49            <meta-data
-49-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:30:13-33:17
-50                android:name="io.flutter.embedding.android.NormalTheme"
-50-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:31:15-70
-51                android:resource="@style/NormalTheme" />
-51-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:32:15-52
-52            <!--
-53                 Displays an Android View that continues showing the launch screen
-54                 Drawable until Flutter paints its first frame, then this splash
-55                 screen fades out. A splash screen is useful to avoid any visual
-56                 gap between the end of Android's launch screen and the painting of
-57                 Flutter's first frame.
-58            -->
-59            <meta-data
-59-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:39:13-42:17
-60                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-60-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:40:15-79
-61                android:resource="@drawable/launch_background" />
-61-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:41:15-61
-62
-63            <intent-filter>
-63-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:43:13-46:29
-64                <action android:name="android.intent.action.MAIN" />
-64-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:44:17-68
-64-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:44:25-66
-65
-66                <category android:name="android.intent.category.LAUNCHER" />
-66-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:45:17-76
-66-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:45:27-74
-67            </intent-filter>
-68        </activity>
-69        <!--
-70             Don't delete the meta-data below.
-71             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-72        -->
-73        <meta-data
-73-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:50:9-52:33
-74            android:name="flutterEmbedding"
-74-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:51:13-44
-75            android:value="2" />
-75-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:52:13-30
+25    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+25-->[:flutter_local_notifications] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
+25-->[:flutter_local_notifications] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
+26
+27    <permission
+27-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+28        android:name="com.muliatech.smartqueue.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+28-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+29        android:protectionLevel="signature" />
+29-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+30
+31    <uses-permission android:name="com.muliatech.smartqueue.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+31-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+31-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+32
+33    <application
+33-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:21:5-68:19
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.10.1] C:\Users\LENOVO\.gradle\caches\transforms-3\17650d0b35f42756c2fe42faf78d0d9b\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+35        android:debuggable="true"
+36        android:icon="@mipmap/launcher_icon"
+36-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:23:9-45
+37        android:label="Guichet Bi" >
+37-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:22:9-35
+38        <meta-data
+38-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:25:10-27:32
+39            android:name="io.flutter.embedding.android.EnableHybridComposition"
+39-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:26:9-76
+40            android:value="true" />
+40-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:27:9-29
+41        <meta-data
+41-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:29:10-31:67
+42            android:name="com.google.android.notifications.default_notification_channel_id"
+42-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:30:9-88
+43            android:value="@string/default_notification_channel_id" />
+43-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:31:9-64
+44
+45        <activity
+45-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:33:9-62:20
+46            android:name="com.muliatech.smartqueue.MainActivity"
+46-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:34:13-41
+47            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+47-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:37:13-163
+48            android:exported="true"
+48-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:40:13-36
+49            android:hardwareAccelerated="true"
+49-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:38:13-47
+50            android:launchMode="singleTop"
+50-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:35:13-43
+51            android:theme="@style/LaunchTheme"
+51-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:36:13-47
+52            android:windowSoftInputMode="adjustResize" >
+52-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:39:13-55
+53
+54            <!--
+55                 Specifies an Android theme to apply to this Activity as soon as
+56                 the Android process has started. This theme is visible to the user
+57                 while the Flutter UI initializes. After that, this theme continues
+58                 to determine the Window background behind the Flutter UI.
+59            -->
+60            <meta-data
+60-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:45:13-48:17
+61                android:name="io.flutter.embedding.android.NormalTheme"
+61-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:46:15-70
+62                android:resource="@style/NormalTheme" />
+62-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:47:15-52
+63            <!--
+64                 Displays an Android View that continues showing the launch screen
+65                 Drawable until Flutter paints its first frame, then this splash
+66                 screen fades out. A splash screen is useful to avoid any visual
+67                 gap between the end of Android's launch screen and the painting of
+68                 Flutter's first frame.
+69            -->
+70            <meta-data
+70-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:54:13-57:17
+71                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+71-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:55:15-79
+72                android:resource="@drawable/launch_background" />
+72-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:56:15-61
+73
+74            <intent-filter>
+74-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:58:13-61:29
+75                <action android:name="android.intent.action.MAIN" />
+75-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:59:17-68
+75-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:59:25-66
 76
-77        <activity android:name="de.mintware.barcode_scan.BarcodeScannerActivity" />
-77-->[:barcode_scan2] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-84
-77-->[:barcode_scan2] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:12:19-81
-78        <activity
-78-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
-79            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-79-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
-80            android:exported="false"
-80-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
-81            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-81-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
-82
-83        <uses-library
-83-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-84            android:name="androidx.window.extensions"
-84-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-85            android:required="false" />
-85-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-86        <uses-library
-86-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-87            android:name="androidx.window.sidecar"
-87-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-88            android:required="false" />
-88-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-89    </application>
-90
-91</manifest>
+77                <category android:name="android.intent.category.LAUNCHER" />
+77-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:60:17-76
+77-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:60:27-74
+78            </intent-filter>
+79        </activity>
+80        <!--
+81             Don't delete the meta-data below.
+82             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+83        -->
+84        <meta-data
+84-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:65:9-67:33
+85            android:name="flutterEmbedding"
+85-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:66:13-44
+86            android:value="2" />
+86-->C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\android\app\src\main\AndroidManifest.xml:67:13-30
+87
+88        <activity android:name="de.mintware.barcode_scan.BarcodeScannerActivity" />
+88-->[:barcode_scan2] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-84
+88-->[:barcode_scan2] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\barcode_scan2\intermediates\merged_manifest\debug\AndroidManifest.xml:12:19-81
+89        <activity
+89-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+90            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+90-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+91            android:exported="false"
+91-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+92            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+92-->[:url_launcher_android] C:\Users\LENOVO\Desktop\Guichet_bi_SOLID\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+93
+94        <uses-library
+94-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+95            android:name="androidx.window.extensions"
+95-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+96            android:required="false" />
+96-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+97        <uses-library
+97-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+98            android:name="androidx.window.sidecar"
+98-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+99            android:required="false" />
+99-->[androidx.window:window:1.0.0-beta04] C:\Users\LENOVO\.gradle\caches\transforms-3\8f2bbd5db674cdf5f16e97a3767b6716\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+100    </application>
+101
+102</manifest>
