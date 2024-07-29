@@ -63,7 +63,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     super.initState();
     _model = createModel(context, () => PageAccueilModel());
     _initNotifications();
- _loadNotificationState();
+    _loadNotificationState();
         //  _checkFirstRun();
     _startTimer();
     //  twilioFlutter = TwilioFlutter(
@@ -86,8 +86,20 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
     const InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
     );
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+     await flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse notificationResponse) async {
+        String? payload = notificationResponse.payload;
+      if (payload != null) {
+        if (payload == 'navigateToSuiviTicket') {
+          _generateTokenNumberUrl();
+        }
+      }
+    },
+    );
     await _createNotificationChannel();
+
+    
   }
 
     Future<void> _createNotificationChannel() async {
@@ -291,7 +303,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       'default_channel', 
       'Default Channel',
       channelDescription: 'your_channel_description',
-      importance: Importance.max,
+      importance: Importance.low,
       priority: Priority.high,
       sound: RawResourceAndroidNotificationSound('notifsilencieuse'),
       ticker: 'ticker',
@@ -303,14 +315,14 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       'Guichet Bi',
       message,
       platformChannelSpecifics,
-      payload: 'item x',
+      payload: 'navigateToSuiviTicket',
     );
     await _speak(message);
   }
 
   Future<void> _speak(String message) async {
     await flutterTts.setLanguage('fr-FR');
-    await flutterTts.setPitch(10.0);
+    await flutterTts.setPitch(-10.0);
     await flutterTts.speak(message);
   }
 

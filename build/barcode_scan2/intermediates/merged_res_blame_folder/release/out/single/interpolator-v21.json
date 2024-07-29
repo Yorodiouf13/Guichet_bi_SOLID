@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\barcode_scan2\\intermediates\\merged_res\\release\\interpolator-v21\\mtrl_linear_out_slow_in.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\a3daf95e99cc56fe98b4b02573c7343e\\transformed\\material-1.1.0\\res\\interpolator-v21\\mtrl_linear_out_slow_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\barcode_scan2\\intermediates\\merged_res\\release\\interpolator-v21\\mtrl_fast_out_slow_in.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\a3daf95e99cc56fe98b4b02573c7343e\\transformed\\material-1.1.0\\res\\interpolator-v21\\mtrl_fast_out_slow_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\barcode_scan2\\intermediates\\merged_res\\release\\interpolator-v21\\mtrl_fast_out_linear_in.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\a3daf95e99cc56fe98b4b02573c7343e\\transformed\\material-1.1.0\\res\\interpolator-v21\\mtrl_fast_out_linear_in.xml"
+    }
+]
