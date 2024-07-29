@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\flutter_tts\\intermediates\\merged_res\\release\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0c2c189cd7e6674ca701db4f1dc987d0\\transformed\\core-1.8.0\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\flutter_tts\\intermediates\\merged_res\\release\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0c2c189cd7e6674ca701db4f1dc987d0\\transformed\\core-1.8.0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\flutter_tts\\intermediates\\merged_res\\release\\drawable-mdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0c2c189cd7e6674ca701db4f1dc987d0\\transformed\\core-1.8.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\flutter_tts\\intermediates\\merged_res\\release\\drawable-mdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0c2c189cd7e6674ca701db4f1dc987d0\\transformed\\core-1.8.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\build\\flutter_tts\\intermediates\\merged_res\\release\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0c2c189cd7e6674ca701db4f1dc987d0\\transformed\\core-1.8.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    }
+]
