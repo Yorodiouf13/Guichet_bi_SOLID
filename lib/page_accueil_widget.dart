@@ -13,6 +13,7 @@ import 'package:appflutter/utils.dart';
 // import 'package:twilio_flutter/twilio_flutter.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 // import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter/cupertino.dart';
 
 
 
@@ -36,7 +37,8 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
 
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
-
+  
+  
   final FlutterTts flutterTts = FlutterTts();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -83,8 +85,15 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
    Future<void> _initNotifications() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-    const InitializationSettings initializationSettings = InitializationSettings(
+
+    final DarwinInitializationSettings initializationSettingsIOS =
+        DarwinInitializationSettings(
+          onDidReceiveLocalNotification: onDidReceiveLocalNotification,
+        );
+
+    final InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
     );
      await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
@@ -128,37 +137,28 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
   //   }
   // }
 
-//  void _showNotificationPermissionDialog() {
-//   showDialog(
-//     context: context,
-//     barrierDismissible: false,
-//     builder: (BuildContext context) {
-//       return AlertDialog(
-//         title: Text('Guichet bi'),
-//         content: Text('L\'application doit vous envoyer des notifications. Voulez-vous les activer ?'),
-//         actions: <Widget>[
-//           TextButton(
-//             child: Text('Non'),
-//             onPressed: () {
-//               setState(() {
-//                 notificationsEnabled = false;
-//               });
-//               Navigator.of(context).pop();
-//             },
-//           ),
-//           TextButton(
-//             child: Text('Oui'),
-//             onPressed: () {
-//               notificationsEnabled = true;
-//               Navigator.of(context).pop();
-//             },
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
-
+  Future<void> onDidReceiveLocalNotification(
+      int id, String? title, String? body, String? payload) async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: Text(title ?? ''),
+        content: Text(body ?? ''),
+        actions: [
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            child: Text('Ok'),
+            onPressed: () async {
+              Navigator.of(context, rootNavigator: true).pop();
+              if (payload != null && payload == 'navigateToSuiviTicket') {
+                await _generateTokenNumberUrl();
+              }
+            },
+          )
+        ],
+      ),
+    );
+  }
 
   //  Future<void> _requestNotificationPermissions() async {
   //   // Demandez la permission d'envoyer des notifications sur iOS
@@ -308,6 +308,7 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       sound: RawResourceAndroidNotificationSound('notifsilencieuse'),
       ticker: 'ticker',
     );
+
     const NotificationDetails platformChannelSpecifics =
         NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
@@ -317,6 +318,9 @@ class _PageAccueilWidgetState extends State<PageAccueilWidget> {
       platformChannelSpecifics,
       payload: 'navigateToSuiviTicket',
     );
+
+
+
     await _speak(message);
   }
 
