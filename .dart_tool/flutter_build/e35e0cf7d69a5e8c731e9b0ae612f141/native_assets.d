@@ -1,1 +1,0 @@
- C:\\Users\\LENOVO\\Desktop\\Guichet_bi_SOLID\\.dart_tool\\flutter_build\\e35e0cf7d69a5e8c731e9b0ae612f141\\native_assets.yaml: 
